@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"github.com/notescli/client"
+	"github.com/notescli/notes"
+)
 
 func main() {
-	fmt.Println("Starting here...")
+	title := client.Input("Notes title: ")
+	content := client.Input("Notes content: ")
+
+	note1 := notes.New(title, content)
+	note1.PrintNotes()
+	note1.SaveNotes()
 }
