@@ -1,15 +1,19 @@
 package main
 
 import (
-	"github.com/notescli/client"
-	"github.com/notescli/notes"
+	"github.com/notescli/arrslice"
+	"github.com/notescli/funks"
 )
 
-func main() {
-	title := client.Input("Notes title: ")
-	content := client.Input("Notes content: ")
+type saver interface {
+	Save() error
+}
 
-	note1 := notes.New(title, content)
-	note1.PrintNotes()
-	note1.SaveNotes()
+func saveNotes(data saver) {
+	data.Save()
+}
+
+func main() {
+	arrslice.Execute()
+	funks.Execute()
 }

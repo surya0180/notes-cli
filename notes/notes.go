@@ -24,7 +24,7 @@ func (n notes) PrintNotes() {
 	fmt.Printf("Content: \n%s\n", n.Content)
 }
 
-func (n *notes) SaveNotes() {
+func (n *notes) Save() error {
 	fileName := strings.ReplaceAll(n.Title, " ", "_")
 	fileName = strings.ToLower(fileName) + ".json"
 
@@ -35,4 +35,5 @@ func (n *notes) SaveNotes() {
 	}
 
 	os.WriteFile(fileName, json, 0644)
+	return nil
 }
